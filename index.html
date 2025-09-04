@@ -1,373 +1,273 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desarrollo de Software Personalizado</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0c2461 0%, #1e3799 50%, #4a69bd 100%);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            width: 100%;
-        }
-        
-        .promo-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 50px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(to right, #ffffff, #a5b4fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
-        }
-        
-        h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #f6b93b;
-        }
-        
-        .tagline {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-            color: #e2e8f0;
-        }
-        
-        .systems {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-        
-        .system-card {
-            flex: 1;
-            min-width: 300px;
-            background: linear-gradient(145deg, rgba(30, 55, 153, 0.6), rgba(12, 36, 97, 0.8));
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .system-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .system-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            pointer-events: none;
-        }
-        
-        .system-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: #f6b93b;
-            display: flex;
-            align-items: center;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .system-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #f6b93b, #e55039);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            box-shadow: 0 5px 15px rgba(230, 80, 57, 0.4);
-        }
-        
-        .system-icon i {
-            font-size: 24px;
-            color: white;
-        }
-        
-        ul {
-            list-style-type: none;
-        }
-        
-        li {
-            margin-bottom: 16px;
-            padding-left: 40px;
-            position: relative;
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-        
-        li:before {
-            content: "✓";
-            color: #78e08f;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-            font-size: 1.2rem;
-            background: rgba(120, 224, 143, 0.15);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .feature-img {
-            height: 180px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin: 20px 0;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-        
-        .feature-img div {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, #4a69bd, #1e3799);
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .sales-img {
-            background: linear-gradient(45deg, #4a69bd, #1e3799);
-        }
-        
-        .gym-img {
-            background: linear-gradient(45deg, #e55039, #eb6a55);
-        }
-        
-        .cta {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .cta p {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            color: #e2e8f0;
-        }
-        
-        .button {
-            display: inline-block;
-            background: linear-gradient(to right, #e55039, #eb6a55);
-            color: white;
-            padding: 18px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(229, 80, 57, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(229, 80, 57, 0.6);
-        }
-        
-        .button:active {
-            transform: translateY(1px);
-        }
-        
-        .decoration {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
-        }
-        
-        .circle-1 {
-            width: 250px;
-            height: 250px;
-            top: -100px;
-            right: -100px;
-        }
-        
-        .circle-2 {
-            width: 150px;
-            height: 150px;
-            bottom: -50px;
-            left: -50px;
-            background: rgba(246, 185, 59, 0.05);
-        }
-        
-        @media (max-width: 968px) {
-            .systems {
-                flex-direction: column;
-            }
-            
-            h1 {
-                font-size: 3rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .promo-card {
-                padding: 30px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            .tagline {
-                font-size: 1.1rem;
-            }
-            
-            .system-card {
-                min-width: 100%;
-            }
-            
-            .feature-img {
-                height: 150px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desarrollo de Software Personalizado</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0c2461 0%, #1e3799 50%, #4a69bd 100%);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container { max-width: 1200px; width: 100%; }
+
+    .promo-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 50px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .header { text-align: center; margin-bottom: 50px; }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(to right, #ffffff, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #f6b93b;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #e2e8f0;
+    }
+
+    .systems {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .system-card {
+      flex: 1;
+      min-width: 300px;
+      background: linear-gradient(145deg, rgba(30, 55, 153, 0.6), rgba(12, 36, 97, 0.8));
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .system-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .system-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: #f6b93b;
+      display: flex;
+      align-items: center;
+      padding-bottom: 15px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .system-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #f6b93b, #e55039);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      box-shadow: 0 5px 15px rgba(230, 80, 57, 0.4);
+    }
+
+    .system-icon i { font-size: 24px; color: white; }
+
+    ul { list-style-type: none; }
+
+    li {
+      margin-bottom: 16px;
+      padding-left: 40px;
+      position: relative;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    li:before {
+      content: "✓";
+      color: #78e08f;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+      background: rgba(120, 224, 143, 0.15);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-img {
+      height: 180px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 20px 0;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .feature-img div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .sales-img { background: linear-gradient(45deg, #4a69bd, #1e3799); }
+    .gym-img { background: linear-gradient(45deg, #e55039, #eb6a55); }
+
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .cta p { font-size: 1.4rem; margin-bottom: 25px; color: #e2e8f0; }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(to right, #25d366, #128c7e);
+      color: white;
+      padding: 18px 45px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(18, 140, 126, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(18, 140, 126, 0.6);
+    }
+
+    .circle { position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.03); }
+    .circle-1 { width: 250px; height: 250px; top: -100px; right: -100px; }
+    .circle-2 { width: 150px; height: 150px; bottom: -50px; left: -50px; background: rgba(246, 185, 59, 0.05); }
+
+    @media (max-width: 968px) {
+      .systems { flex-direction: column; }
+      h1 { font-size: 3rem; }
+      h2 { font-size: 1.8rem; }
+      .promo-card { padding: 30px; }
+    }
+
+    @media (max-width: 576px) {
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.4rem; }
+      .tagline { font-size: 1rem; }
+      .system-card { min-width: 100%; padding: 20px; }
+      .feature-img { height: 140px; }
+      .cta p { font-size: 1.1rem; }
+      .button { padding: 14px 35px; font-size: 1rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="promo-card">
-            <div class="decoration">
-                <div class="circle circle-1"></div>
-                <div class="circle circle-2"></div>
-            </div>
-            
-            <div class="header">
-                <h1>OPTIMIZA TU NEGOCIO</h1>
-                <h2>Desarrollamos tu sistema a medida</h2>
-                <p class="tagline">Soluciones tecnológicas personalizadas para potenciar tu empresa y mejorar la gestión de tus procesos</p>
-            </div>
-            
-            <div class="systems">
-                <div class="system-card">
-                    <h3 class="system-title">
-                        <div class="system-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        SISTEMA DE VENTAS
-                    </h3>
-                    
-                    <div class="feature-img sales-img">
-                        <div>Control Integral de Ventas y Finanzas</div>
-                    </div>
-                    
-                    <ul>
-                        <li>Control de stock e inventario en tiempo real</li>
-                        <li>Gestión de cuentas corrientes y clientes</li>
-                        <li>Seguimiento de ingresos y egresos</li>
-                        <li>Reportes semanales, quincenales y mensuales</li>
-                        <li>Facturación electrónica integrada</li>
-                        <li>Análisis de rendimiento y tendencias de ventas</li>
-                    </ul>
-                </div>
-                
-                <div class="system-card">
-                    <h3 class="system-title">
-                        <div class="system-icon">
-                            <i class="fas fa-dumbbell"></i>
-                        </div>
-                        SISTEMA PARA ACADEMIAS Y GIMNASIOS
-                    </h3>
-                    
-                    <div class="feature-img gym-img">
-                        <div>Gestión Completa de Membresías y Asistencias</div>
-                    </div>
-                    
-                    <ul>
-                        <li>Control de afiliados y membresías</li>
-                        <li>Gestión automatizada de pagos mensuales</li>
-                        <li>Registro de asistencia con tarjetas o código QR</li>
-                        <li>Control de horarios y clases personalizadas</li>
-                        <li>Alertas de vencimiento de cuotas</li>
-                        <li>Reportes financieros y de crecimiento</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="cta">
-                <p>¿Necesitas una solución personalizada para tu negocio?</p>
-                <a href="#" class="button">CONTÁCTAME AHORA</a>
-            </div>
+  <div class="container">
+    <div class="promo-card">
+      <div class="decoration">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+      </div>
+
+      <div class="header">
+        <h1>OPTIMIZA TU NEGOCIO</h1>
+        <h2>Desarrollamos tu sistema a medida</h2>
+        <p class="tagline">Soluciones tecnológicas personalizadas para potenciar tu empresa y mejorar la gestión de tus procesos</p>
+      </div>
+
+      <div class="systems">
+        <div class="system-card">
+          <h3 class="system-title">
+            <div class="system-icon"><i class="fas fa-chart-line"></i></div>
+            SISTEMA DE VENTAS
+          </h3>
+          <div class="feature-img sales-img"><div>Control Integral de Ventas y Finanzas</div></div>
+          <ul>
+            <li>Control de stock e inventario en tiempo real</li>
+            <li>Gestión de cuentas corrientes y clientes</li>
+            <li>Seguimiento de ingresos y egresos</li>
+            <li>Reportes semanales, quincenales y mensuales</li>
+            <li>Facturación electrónica integrada</li>
+            <li>Análisis de rendimiento y tendencias de ventas</li>
+          </ul>
         </div>
+
+        <div class="system-card">
+          <h3 class="system-title">
+            <div class="system-icon"><i class="fas fa-dumbbell"></i></div>
+            SISTEMA PARA ACADEMIAS Y GIMNASIOS
+          </h3>
+          <div class="feature-img gym-img"><div>Gestión Completa de Membresías y Asistencias</div></div>
+          <ul>
+            <li>Control de afiliados y membresías</li>
+            <li>Gestión automatizada de pagos mensuales</li>
+            <li>Registro de asistencia con tarjetas o código QR</li>
+            <li>Control de horarios y clases personalizadas</li>
+            <li>Alertas de vencimiento de cuotas</li>
+            <li>Reportes financieros y de crecimiento</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta">
+        <p>¿Necesitas una solución personalizada para tu negocio?</p>
+        <a href="https://wa.me/543816460066" target="_blank" class="button">
+          <i class="fab fa-whatsapp"></i> CONTÁCTAME AHORA
+        </a>
+      </div>
     </div>
+  </div>
 </body>
 </html>
